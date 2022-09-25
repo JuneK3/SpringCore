@@ -2,6 +2,7 @@ package com.rootlab.core;
 
 import com.rootlab.core.discount.DiscountPolicy;
 import com.rootlab.core.discount.FixDiscountPolicy;
+import com.rootlab.core.discount.RateDiscountPolicy;
 import com.rootlab.core.member.MemberRepository;
 import com.rootlab.core.member.MemberService;
 import com.rootlab.core.member.MemberServiceImpl;
@@ -26,6 +27,7 @@ public class AppConfig {
 	}
 
 	private DiscountPolicy discountPolicy() {
-		return new FixDiscountPolicy();
+//		return new FixDiscountPolicy();
+		return new RateDiscountPolicy();
 	}
 }
