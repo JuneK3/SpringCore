@@ -11,11 +11,14 @@ import com.rootlab.core.order.OrderServiceImpl;
 public class OrderApp {
 
 	public static void main(String[] args) {
-		OrderService orderService = new OrderServiceImpl();
-		MemberService memberService = new MemberServiceImpl();
+		AppConfig appConfig = new AppConfig();
+		OrderService orderService = appConfig.orderService();
+		MemberService memberService = appConfig.memberService();
+
 		long memberId = 1L;
 		Member member = new Member(memberId, "memberA", Grade.VIP);
 		memberService.join(member);
+
 		Order order = orderService.createOrder(memberId, "itemA", 10000);
 		System.out.println("order: " + order);
 	}

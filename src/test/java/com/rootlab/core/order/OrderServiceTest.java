@@ -1,17 +1,26 @@
 package com.rootlab.core.order;
 
+import com.rootlab.core.AppConfig;
 import com.rootlab.core.member.Grade;
 import com.rootlab.core.member.Member;
 import com.rootlab.core.member.MemberService;
 import com.rootlab.core.member.MemberServiceImpl;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class OrderServiceTest {
 
-	MemberService memberService = new MemberServiceImpl();
-	OrderService orderService = new OrderServiceImpl();
+	MemberService memberService;
+	OrderService orderService;
+
+	@BeforeEach
+	void beforeEach() {
+		AppConfig appConfig = new AppConfig();
+		memberService = appConfig.memberService();
+		orderService = appConfig.orderService();
+	}
 
 	@Test
 	void createOrder() {
