@@ -10,19 +10,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor
+//@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 
-//	@Autowired
-//	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-//		System.out.println("memberRepository in constructor = " + memberRepository);
-//		System.out.println("discountPolicy in constructor = " + discountPolicy);
-//		this.memberRepository = memberRepository;
-//		this.discountPolicy = discountPolicy;
-//	}
+	@Autowired
+	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+		System.out.println("memberRepository in constructor = " + memberRepository);
+		System.out.println("discountPolicy in constructor = " + discountPolicy);
+		this.memberRepository = memberRepository;
+		this.discountPolicy = discountPolicy;
+	}
 
 //	@Autowired
 //	public void setMemberRepository(MemberRepository memberRepository) {
