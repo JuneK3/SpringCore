@@ -17,11 +17,11 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 
 	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy rateDiscountPolicy) {
 		System.out.println("memberRepository in constructor = " + memberRepository);
-		System.out.println("discountPolicy in constructor = " + discountPolicy);
+		System.out.println("discountPolicy in constructor = " + rateDiscountPolicy);
 		this.memberRepository = memberRepository;
-		this.discountPolicy = discountPolicy;
+		this.discountPolicy = rateDiscountPolicy;
 	}
 
 //	@Autowired
