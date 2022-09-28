@@ -1,5 +1,6 @@
 package com.rootlab.core.order;
 
+import com.rootlab.core.annotation.MainDiscountPolicy;
 import com.rootlab.core.discount.DiscountPolicy;
 import com.rootlab.core.discount.FixDiscountPolicy;
 import com.rootlab.core.member.Member;
@@ -18,7 +19,7 @@ public class OrderServiceImpl implements OrderService {
 	private final DiscountPolicy discountPolicy;
 
 	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+	public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) {
 		System.out.println("memberRepository in constructor = " + memberRepository);
 		System.out.println("discountPolicy in constructor = " + discountPolicy);
 		this.memberRepository = memberRepository;
