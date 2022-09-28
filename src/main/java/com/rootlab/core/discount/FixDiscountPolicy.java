@@ -7,8 +7,9 @@ import org.springframework.stereotype.Component;
 
 // RateDiscountPolicy와 FixDiscountPolicy를 모두 스프링 빈으로 등록하면
 // DiscountPolicy 타입으로 빈을 조회할 경우 빈이 중복되는 문제가 발생하게 됨
+
+//@Qualifier("fixDiscountPolicy")
 @Component
-@Qualifier("fixDiscountPolicy")
 public class FixDiscountPolicy implements DiscountPolicy {
 
 	private int discountFixAmount = 1000;
