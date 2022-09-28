@@ -5,22 +5,24 @@ import com.rootlab.core.discount.FixDiscountPolicy;
 import com.rootlab.core.member.Member;
 import com.rootlab.core.member.MemberRepository;
 import com.rootlab.core.member.MemoryMemberRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
+@RequiredArgsConstructor
 public class OrderServiceImpl implements OrderService {
 
-	private MemberRepository memberRepository;
-	private DiscountPolicy discountPolicy;
+	private final MemberRepository memberRepository;
+	private final DiscountPolicy discountPolicy;
 
-	@Autowired
-	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
-		System.out.println("memberRepository in constructor = " + memberRepository);
-		System.out.println("discountPolicy in constructor = " + discountPolicy);
-		this.memberRepository = memberRepository;
-		this.discountPolicy = discountPolicy;
-	}
+//	@Autowired
+//	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
+//		System.out.println("memberRepository in constructor = " + memberRepository);
+//		System.out.println("discountPolicy in constructor = " + discountPolicy);
+//		this.memberRepository = memberRepository;
+//		this.discountPolicy = discountPolicy;
+//	}
 
 //	@Autowired
 //	public void setMemberRepository(MemberRepository memberRepository) {
