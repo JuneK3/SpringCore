@@ -5,12 +5,16 @@ import com.rootlab.core.discount.FixDiscountPolicy;
 import com.rootlab.core.member.Member;
 import com.rootlab.core.member.MemberRepository;
 import com.rootlab.core.member.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-public class OrderServiceImpl implements OrderService{
+@Component
+public class OrderServiceImpl implements OrderService {
 
 	private final MemberRepository memberRepository;
 	private final DiscountPolicy discountPolicy;
 
+	@Autowired
 	public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) {
 		this.memberRepository = memberRepository;
 		this.discountPolicy = discountPolicy;
