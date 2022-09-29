@@ -8,6 +8,8 @@ import org.springframework.context.annotation.Scope;
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 public class PrototypeTest {
 
 	@Test
@@ -19,7 +21,9 @@ public class PrototypeTest {
 		PrototypeBean prototypeBean2 = ac.getBean(PrototypeBean.class);
 		System.out.println("prototypeBean1 = " + prototypeBean1);
 		System.out.println("prototypeBean2 = " + prototypeBean2);
-		Assertions.assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
+		assertThat(prototypeBean1).isNotSameAs(prototypeBean2);
+		prototypeBean1.destroy();
+		prototypeBean2.destroy();
 		ac.close();
 	}
 
