@@ -11,7 +11,7 @@ import javax.inject.Provider;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SingletonWithPrototypeTest1 {
+public class SingletonWithPrototypeTest {
 	@Test
 	void prototypeFind() {
 		AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(PrototypeBean.class);
