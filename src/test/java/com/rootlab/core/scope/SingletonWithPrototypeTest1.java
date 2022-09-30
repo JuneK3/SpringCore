@@ -1,6 +1,7 @@
 package com.rootlab.core.scope;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -41,13 +42,15 @@ public class SingletonWithPrototypeTest1 {
 
 	// default Scope: singleton
 	static class ClientBean {
+
+		//ObjectFactory: 기능이 단순, 별도의 라이브러리 필요 없음, 스프링에 의존
+		//ObjectProvider: ObjectFactory 상속, 옵션, 스트림 처리등 편의 기능이 많고,
+		// 별도의 라이브러리 필요없음, 스프링에 의존
 		@Autowired
-		private ApplicationContext ac;
+		ObjectProvider<PrototypeBean> prototypeBeanProvider;
 
 		public int logic() {
-			// 외부에서 의존관계를 주입받는 DI가 아닌
-			// 직접 필요한 의존관계를 찾는 DL(Dependency-Lookup)방식
-			PrototypeBean prototypeBean = ac.getBean(PrototypeBean.class);
+			PrototypeBean prototypeBean = prototypeBeanProvider.getObject();
 			prototypeBean.addCount();
 			int count = prototypeBean.getCount();
 			return count;
